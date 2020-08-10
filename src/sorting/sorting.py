@@ -40,9 +40,15 @@ def merge(arrA, arrB):
 # TO-DO: implement the Merge Sort function below recursively
 def merge_sort(arr):
     
+    if len(arr) < 2:
+        return arr
 
+    mid = len(arr) // 2
 
-    return arr
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+
+    return merge(left, right)
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
     # utilize any extra memory
@@ -58,5 +64,9 @@ def merge_sort_in_place(arr, l, r):
 
 arr1 = [1, 8, 20]
 arr2 = [3, 6, 7]
-
+array = [1, 24, 22, 7, 3, 6, 9, 21, 0, 14]
+print("\nTEST MERGE")
 print(merge(arr1, arr2))
+
+print("\nTEST MERGE_SORT")
+print(merge_sort(array))
